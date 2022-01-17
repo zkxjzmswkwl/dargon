@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"CT420"
+	],
+	"copyright": "Copyright © 2022, CT420",
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "dargon"
+}

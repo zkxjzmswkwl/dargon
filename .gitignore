@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/dargon
+dargon.so
+dargon.dylib
+dargon.dll
+dargon.a
+dargon.lib
+dargon-test-*
+*.exe
+*.o
+*.obj
+*.lst
