@@ -2,6 +2,9 @@ module nest;
 
 import std.file;
 import std.stdio;
+import std.conv;
+import std.json;
+import std.file;
 import egg;
 
 class Nest
@@ -18,6 +21,7 @@ class Nest
 
     public Nest addKey(string keyName)
     {
+        writeln("Add key: " ~ keyName);
         this.keys ~= keyName;
         return this;
     }
@@ -49,7 +53,31 @@ class User : Nest
     this()
     {
         super("User");
-        this.userEgg = new Egg("/home/spore/dargon_test/user.dargon");
+        this.userEgg = new Egg("C:/Users/devbox/Desktop/dargon/user.dargon");
         this.userEgg.parseManifest();
+    }
+
+    public User insert(
+        string username,
+        string password,
+        string discord,
+        string email)
+    {
+        auto newUser = `
+        {
+            "username": "`   ~ username  ~ `",
+            "password": "`   ~ password  ~ `",
+            "discord": "`    ~ discord   ~ `",
+            "email": "`      ~ email     ~ `"
+        }`;
+
+        write!string("C:/Users/devbox/Desktop/dargon/" ~ username ~ ".json", newUser);
+        return this;
+    }
+
+    // TODO: Model..? I don't fucking know. This whole concept is just messy and unthought out...
+    public JSONValue get(string retrievalKey)
+    {
+        return parseJSON(readText("C:/Users/devbox/Desktop/dargon/" ~ retrievalKey ~ ".json"));
     }
 }

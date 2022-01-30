@@ -15,12 +15,14 @@ class Egg
         this.manifestPath = manifestPath;
     }
 
+    // TODO: This makes no design sense. Fix this.
     public void parseManifest()
     {
         // assert(!this.manifestPath.exists);
         // assert(this.manifestPath.isDir);
         writeln("Parsing manifest: " ~ this.manifestPath);
         string manifestContent = readText(this.manifestPath);
-        this.keys = manifestContent.split("BEGIN\n")[1].split("END\n")[0].split("\n");
+        writeln(manifestContent);
+        this.keys = manifestContent.split("BEGIN")[1].split("END\n")[0].split("\n");
     }
 }

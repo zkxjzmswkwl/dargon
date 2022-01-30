@@ -4,7 +4,7 @@ import storage;
 
 void main()
 {
-	Storage s = new Storage("/home/spore/dargon_test/");
+	Storage s = new Storage("C:/Users/devbox/Desktop/dargon/");
 
 	foreach (DirEntry st; s.listRoot())
 	{

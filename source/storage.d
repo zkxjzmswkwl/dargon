@@ -25,12 +25,15 @@ class Storage
         }
 
         User userNest = new User();
-        userNest 
-            .addKey("username")
-            .addKey("password")
-            .addKey("discord")
-            .addKey("email")
-            .writeKeyManifest(this.basePath ~ "user.dargon");
+        // userNest 
+        //     .addKey("username")
+        //     .addKey("password")
+        //     .addKey("discord")
+        //     .addKey("email")
+        //     .writeKeyManifest(this.basePath ~ "user.dargon");
+
+        userNest.insert("Carter", "test123", "Carter#6669", "carter@tupac.gay");
+        writeln(userNest.get("Carter")["discord"].str);
     }
 
     /// Params:
